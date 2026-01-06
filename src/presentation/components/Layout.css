@@ -1,0 +1,60 @@
+/* Layout.css */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 60px;
+  background-color: white;
+  border-bottom: 1px solid #eee;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.nav a:hover {
+  color: #7c9a6a;
+}
+
+.actions span {
+  margin-left: 15px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 60px;
+  background-color: #f8f8f8;
+  margin-top: 60px;
+}
+
+.footer-section {
+  max-width: 300px;
+}
+
+.footer-section h3,
+.footer-section h4 {
+  margin-bottom: 10px;
+}
+
+.footer-section a {
+  display: block;
+  text-decoration: none;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.footer-section a:hover {
+  color: #7c9a6a;
+}

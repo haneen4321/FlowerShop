@@ -1,8 +1,15 @@
+import Header from "./presentation/components/layout/Header.jsx";
+import Footer from "./presentation/components/layout/Footer.jsx";
+
 function App() {
   return (
-    <div>
-      <h1>Flower Shop App</h1>
-    </div>
+    <>
+      <Header />
+      <main style={{ padding: "20px" }}>
+        <h2>Home Page</h2>
+      </main>
+      <Footer />
+    </>
   );
 }
 
