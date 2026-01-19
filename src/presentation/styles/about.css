@@ -1,0 +1,44 @@
+.about-page {
+  padding: 60px 120px 80px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.about-title {
+  font-size: 36px;
+  margin-bottom: 30px;
+  color: #222;
+}
+
+.about-text {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.about-section {
+  margin-bottom: 35px;
+}
+
+.about-section h2 {
+  font-size: 24px;
+  margin-bottom: 12px;
+  color: #ff8c42;
+}
+
+.about-section p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #555;
+}
+
+.about-section ul {
+  padding-left: 20px;
+}
+
+.about-section li {
+  margin-bottom: 10px;
+  line-height: 1.7;
+  color: #555;
+}

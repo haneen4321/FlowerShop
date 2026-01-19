@@ -1,0 +1,42 @@
+.shop {
+  padding: 40px 100px 80px;
+}
+
+.shop-filter {
+  background: white;
+  border-radius: 10px;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.filter-left, .filter-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ff8c42;
+  font-weight: 600;
+}
+
+.filter-search {
+  position: relative;
+  width: 40%;
+}
+
+.filter-search input {
+  width: 100%;
+  padding: 12px 40px 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
+.search-icon {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #777;
+}
