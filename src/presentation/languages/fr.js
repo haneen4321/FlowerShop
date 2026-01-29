@@ -1,14 +1,27 @@
 export const fr = {
-  flowers: {
-    lotus: "Lotus",
-    jasmine: "Jasmin",
-    daisy: "Marguerite",
-    cherry_blossom: "Fleur de cerisier",
-    sunflower: "Tournesol",
-    rose: "Rose",
-    periwinkle: "Pervenche",
-    orchid: "Orchidée",
-  },
+flowers: {
+  lotus: "Lotus",
+  jasmine: "Jasmin",
+  daisy: "Marguerite",
+  cherry_blossom: "Fleur de cerisier",
+  sunflower: "Tournesol",
+  rose: "Rose",
+  periwinkle: "Pervenche",
+  orchid: "Orchidée",
+  lily: "Lys",
+  lavender: "Lavande",
+  iris: "Iris",
+  hydrangea: "Hortensia",
+  clove: "Œillet",
+  centaurea_cyanus: "Bleuet",
+  anemone: "Anémone",
+  tulip: "Tulipe",
+  rosa_damascena: "Rose de Damas",
+  poppy: "Coquelicot",
+  plumeria: "Frangipanier",
+  peony: "Pivoine",
+},
+
 
   header: {
     home: "Accueil",
@@ -71,11 +84,49 @@ export const fr = {
     home: "Accueil",
     shop: "Boutique",
     about: "À propos",
-    login: "Connexion",
 
     contactTitle: "Contact",
-    address: "26985 Brighton Lane, Lake Forest, CA",
+    addresss: "26985 Brighton Lane, Lake Forest, CA",
     email: "support@flowers.com",
     phone: "+1 236 5489",
   },
+
+  auth: {
+    loginTitle: "Connexion",
+    loginSubtitle: "Bon retour ! Veuillez vous connecter à votre compte.",
+
+    registerTitle: "Créer un compte",
+    registerSubtitle: "Rejoignez-nous et commencez à explorer de magnifiques fleurs.",
+
+    email: "E-mail",
+    username: "Nom d’utilisateur",
+    password: "Mot de passe",
+
+    loginButton: "Se connecter",
+    registerButton: "S’inscrire",
+
+    noAccount: "Vous n’avez pas de compte ?",
+    haveAccount: "Vous avez déjà un compte ?",
+
+    backToHome: "Retour à l’accueil",
+  },
+
+  profile: {
+    title: "Paramètres du compte",
+
+    tabProfile: "Profil",
+    tabPassword: "Mot de passe",
+
+    email: "E-mail",
+    username: "Nom d’utilisateur",
+
+    saveChanges: "Enregistrer les modifications",
+
+    currentPassword: "Mot de passe actuel",
+    newPassword: "Nouveau mot de passe",
+    confirmPassword: "Confirmer le mot de passe",
+    updatePassword: "Mettre à jour le mot de passe",
+
+    logout: "Se déconnecter",
+  }
 };

@@ -1,13 +1,12 @@
 import "../styles/global.css";
 import "../styles/about.css";
 import { useLanguage } from "../context/LanguageContext";
-
 export default function About() {
   const { translations } = useLanguage();
   const about = translations.about;
 
   return (
-    <div className="about-page">
+      <div className="about-page">
       <h1 className="about-title">{about.title}</h1>
 
       <p className="about-text">{about.intro}</p>

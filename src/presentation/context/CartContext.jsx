@@ -1,79 +1,91 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
+// ربط السلة بحساب المستخدم
+import { useAuth } from "../context/AuthContext";
+
+import CartRepositoryImpl from "../../infrastructure/repositories/CartRepositoryImpl";
+
 const CartContext = createContext();
 
-// مسؤول عن تخزين عناصر السلة, حفظها في localStorage, و توفير دوال التحكم بالسلة
+const cartRepository = new CartRepositoryImpl();
+
 export function CartProvider({ children }) {
+
+// السلة تعمل إذا كان المستخدم موجود فقط
+  const { user } = useAuth();
+
   const [cartItems, setCartItems] = useState([]);
 
-// تحميل السلة عند تشغيل الموقع
+// مفتاح السلة حسب المستخدم
+  const getCartKey = () => (user ? `cart_${user.id}` : null);
+
+  // تحميل السلة عند تغيير المستخدم
   useEffect(() => {
-    try {
-      const savedCart = JSON.parse(localStorage.getItem("cart"));
-      if (savedCart) {
-        setCartItems(savedCart);
-      }
-    } catch (error) {
-      console.error("Failed to load cart from storage", error);
+    if (!user) {
+      setCartItems([]);
+      return;
     }
-  }, []);
 
-// حفظ السلة عند أي تغيير
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cartItems));
-  }, [cartItems]);
+    const key = getCartKey();
+    const stored = localStorage.getItem(key);
+    setCartItems(stored ? JSON.parse(stored) : []);
+  }, [user]);
 
-// إضافة منتج إلى السلة
+  // حفظ السلة
+  const saveCart = (items) => {
+    const key = getCartKey();
+    if (!key) return;
+
+    localStorage.setItem(key, JSON.stringify(items));
+    setCartItems(items);
+  };
+
+  // إضافة إلى السلة (محمي)
   const addToCart = (flower) => {
-    setCartItems((prev) => {
-      const existingItem = prev.find(
-        (item) => item.flower.id === flower.id
-      );
+    if (!user) {
+      alert("Please login to add items to cart");
+      return;
+    }
 
-      if (existingItem) {
-        return prev.map((item) =>
-          item.flower.id === flower.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        );
-      }
-
-      return [...prev, { flower, quantity: 1 }];
-    });
-  };
-
-// حذف منتج بالكامل
-  const removeFromCart = (flowerId) => {
-    setCartItems((prev) =>
-      prev.filter((item) => item.flower.id !== flowerId)
+    const existing = cartItems.find(
+      (item) => item.flower.id === flower.id
     );
+
+    let updatedItems;
+
+    if (existing) {
+      updatedItems = cartItems.map((item) =>
+        item.flower.id === flower.id
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      );
+    } else {
+      updatedItems = [...cartItems, { flower, quantity: 1 }];
+    }
+
+    saveCart(updatedItems);
   };
 
-// تعديل كمية المنتج
-  const updateQuantity = (flowerId, amount) => {
-    setCartItems((prev) =>
-      prev.map((item) =>
+  // حذف من السلة
+  const removeFromCart = (flowerId) => {
+    const updatedItems = cartItems.filter(
+      (item) => item.flower.id !== flowerId
+    );
+    saveCart(updatedItems);
+  };
+
+  // تعديل الكمية
+  const updateQuantity = (flowerId, delta) => {
+    const updatedItems = cartItems
+      .map((item) =>
         item.flower.id === flowerId
-          ? {
-              ...item,
-              quantity: Math.max(1, item.quantity + amount),
-            }
+          ? { ...item, quantity: item.quantity + delta }
           : item
       )
-    );
-  };
+      .filter((item) => item.quantity > 0);
 
-// تفريغ السلة بالكامل
-  const clearCart = () => {
-    setCartItems([]);
+    saveCart(updatedItems);
   };
-
-// حساب السعر الإجمالي
-  const totalPrice = cartItems.reduce(
-    (total, item) =>
-      total + item.flower.price * item.quantity,
-    0
-  );
 
   return (
     <CartContext.Provider
@@ -82,8 +94,6 @@ export function CartProvider({ children }) {
         addToCart,
         removeFromCart,
         updateQuantity,
-        clearCart,
-        totalPrice,
       }}
     >
       {children}
@@ -91,7 +101,6 @@ export function CartProvider({ children }) {
   );
 }
 
-// Hook جاهز للاستخدام داخل الصفحات
 export function useCart() {
   return useContext(CartContext);
 }

@@ -14,12 +14,10 @@ export default function Shop() {
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("cheap");
 
-  // فلترة + ترتيب
   const filteredFlowers = useMemo(() => {
     const filtered = flowersData.filter((flower) => {
       const flowerName =
-        translations.flowers[flower.nameKey].toLowerCase();
-
+        translations.flowers[flower.nameKey]?.toLowerCase() || "";
       return flowerName.includes(search.toLowerCase());
     });
 
@@ -28,9 +26,9 @@ export default function Shop() {
     );
   }, [search, sort, translations]);
 
-
   return (
     <div className="shop">
+      {/* Filter */}
       <div className="shop-filter">
         <div className="filter-left">
           <span className="filter-icon">🔻</span>
@@ -52,27 +50,25 @@ export default function Shop() {
           onClick={() =>
             setSort((prev) => (prev === "cheap" ? "expensive" : "cheap"))
           }
-          style={{ cursor: "pointer" }}
         >
-          <span>
-            {sort === "cheap"
-              ? `⬇ ${t.cheap}`
-              : `⬆ ${t.expensive}`}
-          </span>
+          {sort === "cheap" ? `⬇ ${t.cheap}` : `⬆ ${t.expensive}`}
         </div>
       </div>
 
+      {/* Products */}
       <div className="products">
         {filteredFlowers.map((flower) => (
           <div key={flower.id} className="product-card">
-            <img src={flower.image} alt={flower.name} />
+            <img
+              src={flower.image}
+              alt={translations.flowers[flower.nameKey]}
+            />
             <h3>{translations.flowers[flower.nameKey]}</h3>
-
 
             <div className="product-footer">
               <span>{flower.price}$</span>
               <button onClick={() => addToCart(flower)}>
-                <span className="cart-icon">🛒</span> {t.addToCart}
+                🛒 {t.addToCart}
               </button>
             </div>
           </div>

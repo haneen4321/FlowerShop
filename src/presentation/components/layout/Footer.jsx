@@ -31,16 +31,13 @@ export default function Footer() {
             <li>
               <Link to="/about">{t.about}</Link>
             </li>
-            <li>
-              <Link to="/login">{t.login}</Link>
-            </li>
           </ul>
         </div>
 
         {/* Contact */}
         <div className="footer__section">
           <h4>{t.contactTitle}</h4>
-          <p>📍 {t.address}</p>
+          <p>📍 {t.addresss}</p>
           <p>✉️ {t.email}</p>
           <p>📞 {t.phone}</p>
         </div>

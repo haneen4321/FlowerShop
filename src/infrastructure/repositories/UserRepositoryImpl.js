@@ -2,13 +2,13 @@ import UserRepository from "../../domain/repositories/UserRepository";
 import User from "../../domain/entities/User";
 
 export default class UserRepositoryImpl extends UserRepository {
-  login(email, password) {
+  login(username, password) {
     return new User({
-      id: 1,
-      username: "Demo User",
+      id,
+      username,
       email,
-      address: "Riyadh"
-    });
+      address,
+      password});
   }
 
   register(userData) {

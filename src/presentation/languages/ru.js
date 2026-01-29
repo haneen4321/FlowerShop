@@ -1,14 +1,26 @@
 export const ru = {
-  flowers: {
-    lotus: "Лотос",
-    jasmine: "Жасмин",
-    daisy: "Ромашка",
-    cherry_blossom: "Цветок вишни",
-    sunflower: "Подсолнух",
-    rose: "Роза",
-    periwinkle: "Барвинок",
-    orchid: "Орхидея",
-  },
+flowers: {
+  lotus: "Лотос",
+  jasmine: "Жасмин",
+  daisy: "Ромашка",
+  cherry_blossom: "Цветок вишни",
+  sunflower: "Подсолнух",
+  rose: "Роза",
+  periwinkle: "Барвинок",
+  orchid: "Орхидея",
+  lily: "Лилия",
+  lavender: "Лаванда",
+  iris: "Ирис",
+  hydrangea: "Гортензия",
+  clove: "Гвоздика",
+  centaurea_cyanus: "Василёк синий",
+  anemone: "Анемона",
+  tulip: "Тюльпан",
+  rosa_damascena: "Дамасская роза",
+  poppy: "Мак",
+  plumeria: "Плюмерия",
+  peony: "Пион",
+},
 
   header: {
     home: "Главная",
@@ -71,11 +83,49 @@ export const ru = {
     home: "Главная",
     shop: "Магазин",
     about: "О нас",
-    login: "Вход",
 
     contactTitle: "Контакты",
-    address: "26985 Brighton Lane, Lake Forest, CA",
+    addresss: "26985 Brighton Lane, Lake Forest, CA",
     email: "support@flowers.com",
     phone: "+1 236 5489",
   },
+
+  auth: {
+    loginTitle: "Вход",
+    loginSubtitle: "С возвращением! Пожалуйста, войдите в свой аккаунт.",
+
+    registerTitle: "Создать аккаунт",
+    registerSubtitle: "Присоединяйтесь к нам и начните изучать красивые цветы.",
+
+    email: "Электронная почта",
+    username: "Имя пользователя",
+    password: "Пароль",
+
+    loginButton: "Войти",
+    registerButton: "Зарегистрироваться",
+
+    noAccount: "Нет аккаунта?",
+    haveAccount: "Уже есть аккаунт?",
+
+    backToHome: "Вернуться на главную",
+  },
+
+  profile: {
+    title: "Настройки аккаунта",
+
+    tabProfile: "Профиль",
+    tabPassword: "Пароль",
+
+    email: "Электронная почта",
+    username: "Имя пользователя",
+
+    saveChanges: "Сохранить изменения",
+
+    currentPassword: "Текущий пароль",
+    newPassword: "Новый пароль",
+    confirmPassword: "Подтвердите пароль",
+    updatePassword: "Обновить пароль",
+
+    logout: "Выйти",
+  }
 };

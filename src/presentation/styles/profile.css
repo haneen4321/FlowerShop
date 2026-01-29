@@ -1,0 +1,83 @@
+.profile-page {
+  min-height: calc(100vh - 80px);
+  background: #fafafa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-card {
+  width: 900px;
+  max-width: 95%;
+  background: #fff;
+  border-radius: 12px;
+  padding: 40px;
+}
+
+/* Header */
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+}
+
+.profile-tabs button {
+  background: transparent;
+  border: none;
+  padding: 8px 16px;
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.profile-tabs button.active {
+  background: #ff8c42;
+  color: white;
+  border-radius: 6px;
+}
+
+/* Sections */
+.profile-section {
+  margin-top: 30px;
+  max-width: 400px;
+}
+
+.profile-section label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.profile-section input {
+  margin-top: 6px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.profile-section input:focus {
+  outline: none;
+  border-color: #ff8c42;
+}
+
+.save-btn {
+  background: #ff8c42;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.logout-btn {
+  margin-top: 30px;
+  background: transparent;
+  border: 1px solid #ff8c42;
+  color: #ff8c42;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}

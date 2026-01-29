@@ -36,7 +36,8 @@ zh: {
 };
 
 export function LanguageProvider({ children }) {
-  const [lang, setLang] = useState("en");
+  
+  const [lang, setLang] = useState("ar");
 
   const current = LANGUAGES[lang];
 

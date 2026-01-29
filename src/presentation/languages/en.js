@@ -1,22 +1,27 @@
 export const en = {
 
 flowers: {
-    lotus: "Lotus",
-
-    jasmine: "Jasmine",
-
-    daisy: "Daisy",
-
-    cherry_blossom: "Cherry Blossom",
-
-    sunflower: "Sunflower",
-
-    rose: "Rose",
-
-    periwinkle: "Periwinkle",
-
-    orchid: "Orchid",
-  },
+  lotus: "Lotus",
+  jasmine: "Jasmine",
+  daisy: "Daisy",
+  cherry_blossom: "Cherry Blossom",
+  sunflower: "Sunflower",
+  rose: "Rose",
+  periwinkle: "Periwinkle",
+  orchid: "Orchid",
+  lily: "Lily",
+  lavender: "Lavender",
+  iris: "Iris",
+  hydrangea: "Hydrangea",
+  clove: "Clove",
+  centaurea_cyanus: "Centaurea Cyanus",
+  anemone: "Anemone",
+  tulip: "Tulip",
+  rosa_damascena: "Damask Rose",
+  poppy: "Poppy",
+  plumeria: "Plumeria",
+  peony: "Peony",
+},
 
   header: {
     home: "Home",
@@ -78,11 +83,49 @@ flowers: {
     home: "Home",
     shop: "Shop",
     about: "About",
-    login: "Login",
 
     contactTitle: "Contact",
-    address: "26985 Brighton Lane, Lake Forest, CA",
+    addresss: "26985 Brighton Lane, Lake Forest, CA",
     email: "support@flowers.com",
     phone: "+1 236 5489",
   },
+
+  auth: {
+    loginTitle: "Login",
+    loginSubtitle: "Welcome back! Please sign in to your account.",
+
+    registerTitle: "Create Account",
+    registerSubtitle: "Join us and start exploring beautiful flowers.",
+
+    email: "Email",
+    username: "Username",
+    password: "Password",
+
+    loginButton: "Login",
+    registerButton: "Register",
+
+    noAccount: "Don't have an account?",
+    haveAccount: "Already have an account?",
+
+    backToHome: "Back to home",
+  },
+
+  profile: {
+    title: "Account Settings",
+
+    tabProfile: "Profile",
+    tabPassword: "Password",
+
+    email: "Email",
+    username: "Username",
+
+    saveChanges: "Save changes",
+
+    currentPassword: "Current password",
+    newPassword: "New password",
+    confirmPassword: "Confirm password",
+    updatePassword: "Update password",
+
+    logout: "Logout",
+  }
 };

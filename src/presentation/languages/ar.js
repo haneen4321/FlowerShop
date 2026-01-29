@@ -1,22 +1,28 @@
 export const ar = {
 
 flowers: {
-    lotus: "اللوتس",
+  lotus: "اللوتس",
+  jasmine: "الياسمين",
+  daisy: "الأقحوان",
+  cherry_blossom: "زهر الكرز",
+  sunflower: "دوّار الشمس",
+  rose: "الورد",
+  periwinkle: "فينكا",
+  orchid: "الأوركيد",
+  lily: "الزنبق",
+  lavender: "الخزامى",
+  iris: "السوسن",
+  hydrangea: "الكوبية",
+  clove: "القرنفل",
+  centaurea_cyanus: "القنطريون الأزرق",
+  anemone: "شقائق النعمان",
+  tulip: "التوليب",
+  rosa_damascena: "الورد الدمشقي",
+  poppy: "الخشخاش",
+  plumeria: "الفرانجيباني",
+  peony: "الفاوانيا",
+},
 
-    jasmine: "الياسمين",
-
-    daisy: "الأقحوان",
-
-    cherry_blossom: "زهر الكرز",
-
-    sunflower: "دوّار الشمس",
-
-    rose: "الورد",
-
-    periwinkle: "فينكا",
-
-    orchid: "الأوركيد",
-  },
 
   header: {
     home: "الرئيسية",
@@ -78,11 +84,49 @@ flowers: {
     home: "الرئيسية",
     shop: "المتجر",
     about: "من نحن",
-    login: "تسجيل الدخول",
 
     contactTitle: "التواصل",
-    address: "26985 شارع برايتون، ليك فورست، كاليفورنيا",
+    addresss: "26985 شارع برايتون، ليك فورست، كاليفورنيا",
     email: "support@flowers.com",
     phone: "+1 236 5489",
   },
+  
+  auth: {
+    loginTitle: "تسجيل الدخول",
+    loginSubtitle: "مرحبًا بعودتك! الرجاء تسجيل الدخول إلى حسابك.",
+
+    registerTitle: "إنشاء حساب",
+    registerSubtitle: "انضم إلينا وابدأ في استكشاف الزهور الجميلة.",
+
+    email: "البريد الإلكتروني",
+    username: "اسم المستخدم",
+    password: "كلمة المرور",
+
+    loginButton: "دخول",
+    registerButton: "تسجيل",
+
+    noAccount: "ليس لديك حساب؟",
+    haveAccount: "لديك حساب بالفعل؟",
+
+    backToHome: "العودة إلى الصفحة الرئيسية",
+  },
+
+  profile: {
+    title: "إعدادات الحساب",
+
+    tabProfile: "الملف الشخصي",
+    tabPassword: "كلمة المرور",
+
+    email: "البريد الإلكتروني",
+    username: "اسم المستخدم",
+
+    saveChanges: "حفظ التغييرات",
+
+    currentPassword: "كلمة المرور الحالية",
+    newPassword: "كلمة المرور الجديدة",
+    confirmPassword: "تأكيد كلمة المرور",
+    updatePassword: "تحديث كلمة المرور",
+
+    logout: "تسجيل الخروج",
+  }
 };

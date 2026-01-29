@@ -8,6 +8,18 @@ export const zh = {
     rose: "玫瑰",
     periwinkle: "长春花",
     orchid: "兰花",
+    lily: "百合",
+    lavender: "薰衣草",
+    iris: "鸢尾花",
+    hydrangea: "绣球花",
+    clove: "康乃馨",
+    centaurea_cyanus: "矢车菊",
+    anemone: "银莲花",
+    tulip: "郁金香",
+    rosa_damascena: "大马士革玫瑰",
+    poppy: "罂粟花",
+    plumeria: "鸡蛋花",
+    peony: "牡丹",
   },
 
   header: {
@@ -71,11 +83,50 @@ export const zh = {
     home: "首页",
     shop: "商店",
     about: "关于我们",
-    login: "登录",
 
     contactTitle: "联系方式",
-    address: "26985 Brighton Lane, Lake Forest, CA",
+    addresss: "26985 Brighton Lane, Lake Forest, CA",
     email: "support@flowers.com",
     phone: "+1 236 5489",
   },
+
+  auth: {
+    loginTitle: "登录",
+    loginSubtitle: "欢迎回来！请登录您的账户。",
+
+    registerTitle: "创建账户",
+    registerSubtitle: "加入我们，开始探索美丽的花卉。",
+
+    email: "电子邮箱",
+    username: "用户名",
+    password: "密码",
+
+    loginButton: "登录",
+    registerButton: "注册",
+
+    noAccount: "还没有账户？",
+    haveAccount: "已经有账户了？",
+
+    backToHome: "返回首页",
+  },
+
+  profile: {
+    title: "账户设置",
+
+    tabProfile: "个人资料",
+    tabPassword: "密码",
+
+    email: "电子邮箱",
+    username: "用户名",
+
+    saveChanges: "保存更改",
+
+    currentPassword: "当前密码",
+    newPassword: "新密码",
+    confirmPassword: "确认密码",
+    updatePassword: "更新密码",
+
+    logout: "退出登录",
+  }
+
 };

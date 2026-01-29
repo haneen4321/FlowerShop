@@ -1,7 +1,5 @@
-// المستخدم في النظام
+// المستخدم يعرف من خلال ID, الاسم, البريد الإلكتروني, الموقع, كلمة السر
 export default class User {
-
-  // يجب أن يكون لكل مستخدم: رقم ID, اسم مستخدم, بريد الكتروني, وعنوان
   constructor({ id, username, email, address }) {
     this.id = id;
     this.username = username;
