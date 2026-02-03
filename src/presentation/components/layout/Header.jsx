@@ -1,18 +1,31 @@
-import { Link, useLocation } from "react-router-dom";
+import { useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "../../styles/Layout.css";
 import { useLanguage } from "../../context/LanguageContext";
+import { useAuth } from "../../context/AuthContext";
 
 export default function Header() {
   const { lang, setLang, languages, translations } = useLanguage();
+  const { user, logout } = useAuth();
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const [showMenu, setShowMenu] = useState(false);
 
   const isAuthPage =
     location.pathname === "/login" ||
     location.pathname === "/register";
 
+  const t = translations.header;
+
+  const handleLogout = () => {
+    logout();
+    setShowMenu(false);
+    navigate("/login");
+  };
+
   return (
     <header className="header">
-      {/* ❌ لا نعرض الشعار والتنقل في صفحات auth */}
       {!isAuthPage && (
         <>
           <div className="header__logo">
@@ -20,14 +33,13 @@ export default function Header() {
           </div>
 
           <nav className="header__nav">
-            <Link to="/">{translations.header.home}</Link>
-            <Link to="/shop">{translations.header.shop}</Link>
-            <Link to="/about">{translations.header.about}</Link>
+            <Link to="/">{t.home}</Link>
+            <Link to="/shop">{t.shop}</Link>
+            <Link to="/about">{t.about}</Link>
           </nav>
         </>
       )}
 
-      {/* ✅ اللغة تظهر دائمًا */}
       <div className="header__icons">
         <select
           value={lang}
@@ -43,7 +55,36 @@ export default function Header() {
 
         {!isAuthPage && (
           <>
-            <Link to="/profile">👤</Link>
+            {user && (
+              <div className="user-menu">
+                <button
+                  className="user-icon"
+                  onClick={() => setShowMenu((prev) => !prev)}
+                >
+                  👤
+                </button>
+
+                {showMenu && (
+                  <div className="header-dropdown">
+                    <Link
+                      to="/profile"
+                      className="header-option"
+                      onClick={() => setShowMenu(false)}
+                    >
+                      {t.profile}
+                    </Link>
+
+                    <button
+                      onClick={handleLogout}
+                      className="header-option"
+                    >
+                      {t.logout}
+                    </button>
+                  </div>
+                )}
+              </div>
+            )}
+
             <Link to="/cart">🛒</Link>
           </>
         )}

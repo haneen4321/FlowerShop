@@ -24,7 +24,7 @@
 
 .header__nav a {
   text-decoration: none;
-  color: #333;
+  color: #ff8c42;
   font-weight: 500;
 }
 
@@ -38,6 +38,57 @@
   gap: 16px;
   font-size: 20px;
   cursor: pointer;
+}
+
+.user-menu {
+  position: relative;
+}
+
+.user-icon {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0; /* إلغاء أي padding افتراضي قد يسبب الإزاحة */
+}
+
+/* ============================= */
+/* User Dropdown Menu */
+/* ============================= */
+
+.header-dropdown {
+  position: absolute;
+  top: 32px;
+  inset-inline-end: 0;
+  inset-inline-start: auto;
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  min-width: 130px;
+  z-index: 100;
+}
+
+.header-option {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 12px 16px; /* زيادة الحشو لسهولة الضغط */
+  text-align: start;
+  background: none;
+  border: none;
+  text-decoration: none;
+  color: #ff8c42;
+  cursor: pointer;
+  font-size: 14px;
+  box-sizing: border-box; /* لضمان عدم خروج العنصر عن عرض القائمة */
+  transition: background-color 0.2s ease;
+}
+
+.header-option:hover {
+  background-color: #f7f7f7;
 }
 
 /* Footer */

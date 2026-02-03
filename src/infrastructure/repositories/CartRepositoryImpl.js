@@ -1,44 +1,24 @@
 import CartRepository from "../../domain/repositories/CartRepository";
 import { getCartFromStorage, saveCartToStorage } from "../storage/localStorageService";
-
-// يرث من ملف CartRepository
 export default class CartRepositoryImpl extends CartRepository {
-
-// جلب محتويات السلة من التخزين وارجاعها كـ array
-  getItems() {
-    return getCartFromStorage();
-  }
-
-// اظهار السلة الحالية
   addItem(item) {
     const cart = getCartFromStorage();
+    const existingItem = cart.find(cartItem => cartItem.flower.id === item.flower.id);
 
-//  إضافة الزهرة إلى السلة
-    const existingItem = cart.find(
-      cartItem => cartItem.flower.id === item.flower.id
-    );
-
-// الزهرة موجودة = زيادة الكمية فقط 
-    if (existingItem) {
+    if (existingItem){
       existingItem.quantity += item.quantity;
-
-// الزهرة غير موجودة = زيادة إضافتها إلى السلة 
-    } else {
-      cart.push(item);
     }
 
-// حفظ محتويات السلة
+    else {
+      cart.push(item);
+    }
+    
     saveCartToStorage(cart);
   }
 
-//  حذف الزهرة إلى السلة
   removeItem(flowerId) {
     const cart = getCartFromStorage();
-    const updatedCart = cart.filter(
-      item => item.flower.id !== flowerId
-    );
-
-// حفظ محتويات السلة
+    const updatedCart = cart.filter(item => item.flower.id !== flowerId);
     saveCartToStorage(updatedCart);
   }
 }

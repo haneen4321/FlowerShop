@@ -49,7 +49,7 @@ export default function Cart() {
             <img src={item.flower.image} alt={item.flower.nameKey} />
 
             <div className="cart-info">
-              <h3>{translations.flowers[item.flower.nameKey]}</h3>
+              <h3>{t.flowers[item.flower.nameKey]}</h3>
               <p>
                 {t.unitPrice} {item.flower.price}$
               </p>

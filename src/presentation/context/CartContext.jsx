@@ -1,22 +1,17 @@
 import { createContext, useContext, useEffect, useState } from "react";
-
-// ربط السلة بحساب المستخدم
+import { increaseFlowerSales } from "../../infrastructure/storage/salesStorage";
 import { useAuth } from "../context/AuthContext";
-
-import CartRepositoryImpl from "../../infrastructure/repositories/CartRepositoryImpl";
 
 const CartContext = createContext();
 
-const cartRepository = new CartRepositoryImpl();
-
 export function CartProvider({ children }) {
 
-// السلة تعمل إذا كان المستخدم موجود فقط
+  // المستخدم الحالي
   const { user } = useAuth();
 
   const [cartItems, setCartItems] = useState([]);
 
-// مفتاح السلة حسب المستخدم
+  // مفتاح السلة حسب المستخدم
   const getCartKey = () => (user ? `cart_${user.id}` : null);
 
   // تحميل السلة عند تغيير المستخدم
@@ -40,7 +35,7 @@ export function CartProvider({ children }) {
     setCartItems(items);
   };
 
-  // إضافة إلى السلة (محمي)
+  // إضافة إلى السلة + تحديث الأكثر مبيعًا
   const addToCart = (flower) => {
     if (!user) {
       alert("Please login to add items to cart");
@@ -64,6 +59,9 @@ export function CartProvider({ children }) {
     }
 
     saveCart(updatedItems);
+
+    // ✅ هنا المكان الصحيح
+    increaseFlowerSales(flower.id);
   };
 
   // حذف من السلة

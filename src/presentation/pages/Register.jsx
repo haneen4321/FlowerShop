@@ -4,6 +4,11 @@ import { useAuth } from "../context/AuthContext";
 import { useLanguage } from "../context/LanguageContext";
 import "../styles/auth.css";
 
+// ✅ Email validation helper
+const isValidEmail = (email) => {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+};
+
 export default function Register() {
   const { translations } = useLanguage();
   const t = translations.auth;
@@ -12,14 +17,33 @@ export default function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const [emailError, setEmailError] = useState("");
+  const [usernameError, setUsernameError] = useState("");
+
   const { login } = useAuth();
   const navigate = useNavigate();
 
   const handleRegister = () => {
+    // 🔴 تحقق من الحقول الفارغة
     if (!email || !username || !password) return;
 
+    // 🔴 تحقق من صحة البريد
+    if (!isValidEmail(email)) {
+      setEmailError(t.invalidEmail);
+      return;
+    }
+
+    setEmailError("");
+
     const users = JSON.parse(localStorage.getItem("users")) || [];
-    if (users.some((u) => u.username === username)) return;
+
+    // 🔴 تحقق من تكرار اسم المستخدم
+    if (users.some((u) => u.username === username)) {
+      setUsernameError(t.usernameTaken);
+      return;
+    }
+
+    setUsernameError("");
 
     const newUser = {
       id: Date.now(),
@@ -30,6 +54,7 @@ export default function Register() {
 
     users.push(newUser);
     localStorage.setItem("users", JSON.stringify(users));
+
     login(newUser);
     navigate("/profile");
   };
@@ -46,16 +71,19 @@ export default function Register() {
           <p className="subtitle">{t.registerSubtitle}</p>
 
           <input
+            type="email"
             placeholder={t.email}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
+          {emailError && <p className="error-text">{emailError}</p>}
 
           <input
             placeholder={t.username}
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
+          {usernameError && <p className="error-text">{usernameError}</p>}
 
           <input
             type="password"

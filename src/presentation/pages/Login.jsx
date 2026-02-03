@@ -10,21 +10,24 @@ export default function Login() {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loginError, setLoginError] = useState(""); // ✅ جديد
 
   const { login } = useAuth();
   const navigate = useNavigate();
 
   const handleLogin = () => {
     const users = JSON.parse(localStorage.getItem("users")) || [];
+
     const user = users.find(
       (u) => u.username === username && u.password === password
     );
 
     if (!user) {
-      alert("Invalid credentials");
+      setLoginError(t.invalidCredentials);
       return;
     }
 
+    setLoginError("");
     login(user);
     navigate("/profile");
   };
@@ -52,6 +55,12 @@ export default function Login() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+
+          {loginError && (
+            <p className="error-text">
+              {loginError}
+            </p>
+          )}
 
           <button className="auth-btn" onClick={handleLogin}>
             {t.loginButton}

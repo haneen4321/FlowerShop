@@ -1,4 +1,3 @@
-// الأزهار الموجودة في المتجر
 export const flowersData = [
   {
     id: 1,

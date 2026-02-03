@@ -1,9 +1,7 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-
 import Header from "./presentation/components/layout/Header";
 import Footer from "./presentation/components/layout/Footer";
 import LanguageOnlyHeader from "./presentation/components/layout/LanguageOnlyHeader";
-
 import Home from "./presentation/pages/Home";
 import Shop from "./presentation/pages/Shop";
 import About from "./presentation/pages/About";

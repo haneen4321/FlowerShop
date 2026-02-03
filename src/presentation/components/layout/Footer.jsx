@@ -37,9 +37,8 @@ export default function Footer() {
         {/* Contact */}
         <div className="footer__section">
           <h4>{t.contactTitle}</h4>
-          <p>📍 {t.addresss}</p>
-          <p>✉️ {t.email}</p>
-          <p>📞 {t.phone}</p>
+          <p>✉️ support@flowers.com</p>
+          <p>📞 +1 236 5489</p>
         </div>
       </div>
     </footer>

@@ -5,7 +5,7 @@ import { useLanguage } from "../context/LanguageContext";
 import "../styles/profile.css";
 
 export default function Profile() {
-  const { user, updateUser, logout } = useAuth();
+  const { user, authReady, updateUser, logout } = useAuth();
   const { translations } = useLanguage();
   const t = translations.profile;
 
@@ -19,15 +19,20 @@ export default function Profile() {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  // 🔒 حماية الصفحة + تحميل البيانات
+
   useEffect(() => {
+    if (!authReady) return;
+
     if (!user) {
       navigate("/login");
-    } else {
-      setEmail(user.email);
-      setUsername(user.username);
+      return;
     }
-  }, [user, navigate]);
+
+    setEmail(user.email);
+    setUsername(user.username);
+  }, [user, authReady, navigate]);
+
+
 
   if (!user) return null;
 
@@ -169,17 +174,6 @@ export default function Profile() {
             </button>
           </div>
         )}
-
-        {/* Logout */}
-        <button
-          className="logout-btn"
-          onClick={() => {
-            logout();
-            navigate("/login");
-          }}
-        >
-          {t.logout}
-        </button>
       </div>
     </div>
   );
