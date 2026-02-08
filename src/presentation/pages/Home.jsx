@@ -17,7 +17,7 @@ export default function Home() {
     <div className="home">
       {/* ===== Hero Section ===== */}
       <section className="hero">
-        <div className="hero__text">
+        <div className="mineTitle">
           <h1>
             {t.mineTitleLine}
           </h1>

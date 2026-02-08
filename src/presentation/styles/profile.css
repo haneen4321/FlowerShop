@@ -71,3 +71,10 @@
   border-radius: 8px;
   cursor: pointer;
 }
+
+.success-message {
+  margin-top: 10px;
+  color: #ff8c42;
+  font-size: 14px;
+  font-weight: 500;
+}

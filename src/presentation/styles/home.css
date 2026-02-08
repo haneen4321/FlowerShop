@@ -5,17 +5,17 @@
   padding: 80px 100px;
 }
 
-.hero__text {
+.mineTitle {
   max-width: 450px;
 }
 
-.hero__text h1 {
+.mineTitle h1 {
   font-size: 56px;
   font-weight: 700;
   margin-bottom: 20px;
 }
 
-.hero__text p {
+.mineTitle p {
   color: #777;
   margin-bottom: 30px;
 }
