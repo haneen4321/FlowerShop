@@ -18,8 +18,6 @@
   box-shadow: var(--shadow-soft);
 }
 
-/* ===== Header ===== */
-
 .profile-header {
   display: flex;
   justify-content: space-between;
@@ -49,8 +47,6 @@
   border-radius: 6px;
 }
 
-/* ===== Sections ===== */
-
 .profile-section {
   margin-top: 30px;
   max-width: 400px;
@@ -79,8 +75,6 @@
   border-color: var(--color-primary);
 }
 
-/* ===== Buttons ===== */
-
 .save-btn {
   background: var(--color-primary);
   color: var(--color-text-white);
@@ -98,8 +92,6 @@
 .save-btn:active {
   transform: scale(0.98);
 }
-
-/* ===== Messages ===== */
 
 .success-message {
   margin-top: 10px;

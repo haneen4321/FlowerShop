@@ -1,49 +1,44 @@
-/* ==================== Typography ==================== */
-
 h1 {
   display: flex;
   justify-content: center;
-  font-size: 3rem; /* كان 50px */
-  margin-bottom: 1.875rem; /* كان 30px */
+  font-size: 3rem;
+  margin-bottom: 1.875rem;
   color: var(--color-text-dark);
 }
 
 h2 {
   display: flex;
   justify-content: center;
-  font-size: 2.5rem; /* كان 40px */
+  font-size: 2.5rem;
   color: var(--color-primary);
-  margin-bottom: 0.625rem; /* كان 10px */
+  margin-bottom: 0.625rem;
 }
 
 h3 {
-  font-size: 2.5rem; /* كان 40px */
+  font-size: 2.5rem;
   color: var(--color-text-dark);
 }
 
 p {
   text-align: center;
-  font-size: 1.875rem; /* كان 30px */
+  font-size: 1.875rem;
   color: var(--color-text-light);
-  margin: 0.625rem auto; /* كان 10px */
+  margin: 0.625rem auto;
 }
 
 li {
   text-align: center;
   list-style: none;
-  font-size: 1.875rem; /* كان 30px */
-  margin: 0.625rem; /* كان 10px */
+  font-size: 1.875rem;
+  margin: 0.625rem;
   color: var(--color-text-light);
 }
 
 span {
-  font-size: 1.875rem; /* كان 30px */
+  font-size: 1.875rem;
   color: var(--color-text-dark);
 }
 
-/* ==================== Fonts ==================== */
-
-/* Arabic font */
 @font-face {
   font-family: "ArFont";
   src: url("/fonts/Arabic_Font.ttf") format("truetype");
@@ -53,7 +48,6 @@ html[lang="ar"] body {
   font-family: "ArFont", sans-serif;
 }
 
-/* English and other Latin-based fonts */
 @font-face {
   font-family: "EnFont";
   src: url("/fonts/English_Font.otf") format("truetype");

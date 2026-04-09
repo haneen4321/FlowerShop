@@ -1,11 +1,7 @@
-/* ===== Shop Page ===== */
-
 .shop-page {
   padding: 40px 100px 80px;
   background: var(--color-bg-main);
 }
-
-/* ===== Filter Bar ===== */
 
 .shop-filter {
   background: var(--color-bg-white);
@@ -18,8 +14,6 @@
   box-shadow: var(--shadow-soft);
   border: 1px solid var(--color-border-light);
 }
-
-/* ===== Filter & Sort Base ===== */
 
 .filter-left,
 .filter-right {
@@ -36,8 +30,6 @@
 .sort-icon {
   font-size: 14px;
 }
-
-/* ===== Search ===== */
 
 .filter-search {
   position: relative;
@@ -60,8 +52,6 @@
   box-shadow: var(--shadow-dropdown);
 }
 
-/* ===== Dropdown ===== */
-
 .filter-dropdown {
   position: absolute;
   top: 45px;
@@ -74,8 +64,6 @@
   box-shadow: var(--shadow-dropdown-strong);
   overflow: hidden;
 }
-
-/* ===== Dropdown Options ===== */
 
 .filter-option {
   padding: 10px 14px;
@@ -93,18 +81,3 @@
   background: var(--color-primary-light);
   font-weight: bold;
 }
-
-/* ===== RTL Fixes =====
-html[dir="rtl"] .filter-left,
-html[dir="rtl"] .filter-right {
-  flex-direction: row-reverse;
-}
-
-html[dir="rtl"] .filter-dropdown {
-  left: auto;
-  right: 0;
-}
-
-html[dir="rtl"] .filter-option {
-  text-align: right;
-} */
