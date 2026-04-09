@@ -1,11 +1,7 @@
 export default class User {
-  constructor(id, email, username, password, firstName = "", lastName = "", phone = "") {
+  constructor(id, email, username) {
     this.id = id;
     this.email = email;
     this.username = username;
-    this.password = password;
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.phone = phone;
   }
 }

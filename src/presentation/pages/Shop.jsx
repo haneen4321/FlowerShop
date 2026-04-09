@@ -1,10 +1,9 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useRef } from "react";
 import "../styles/global.css";
 import "../styles/shop.css";
-
+import "../styles/product.css";
 import { flowersData } from "../../infrastructure/data/flowersData";
 import FlowerRepositoryImpl from "../../infrastructure/repositories/FlowerRepositoryImpl";
-
 import { useCart } from "../context/CartContext";
 import { useLanguage } from "../context/LanguageContext";
 
@@ -13,54 +12,74 @@ const flowerRepository = new FlowerRepositoryImpl();
 export default function Shop() {
   const { addToCart } = useCart();
   const { translations } = useLanguage();
-  const t = translations.shop;
+
+  const t = {
+    ...translations.global,
+    ...translations.buttons,
+    ...translations.shop,
+  };
 
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("cheap");
-
-  // Sort dropdown
   const [sortOpen, setSortOpen] = useState(false);
-
-  // Filter dropdown
   const [filterOpen, setFilterOpen] = useState(false);
   const [activeFilter, setActiveFilter] = useState("all");
-
-  // Best Sellers
   const [bestSellers, setBestSellers] = useState([]);
+
+  const filterRef = useRef(null);
+  const sortRef = useRef(null);
 
   useEffect(() => {
     setBestSellers(flowerRepository.getBestSellers(8));
   }, []);
 
-  // 🧠 source + search + sort (مع الأبجدي)
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (filterRef.current && !filterRef.current.contains(event.target)) {
+        setFilterOpen(false);
+      }
+
+      if (sortRef.current && !sortRef.current.contains(event.target)) {
+        setSortOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  // ✅ دالة موحدة لجلب اسم الزهرة
+  const getFlowerName = (flower) => {
+    return (
+      translations.flowers?.[flower.nameKey] ||
+      flower.name ||
+      ""
+    );
+  };
+
   const displayedFlowers = useMemo(() => {
     const source =
-      activeFilter === "best" ? bestSellers : flowersData;
+      activeFilter === "best"
+        ? bestSellers.map((best) =>
+            flowersData.find((f) => f.id === best.id) || best
+          )
+        : flowersData;
 
     const filtered = source.filter((flower) => {
-      const flowerName =
-        translations.flowers[flower.nameKey]?.toLowerCase() || "";
-      return flowerName.includes(search.toLowerCase());
+      const name = getFlowerName(flower).toLowerCase();
+      return name.includes(search.toLowerCase());
     });
 
     return filtered.sort((a, b) => {
-      // الأرخص
-      if (sort === "cheap") {
-        return a.price - b.price;
-      }
+      if (sort === "cheap") return a.price - b.price;
+      if (sort === "expensive") return b.price - a.price;
 
-      // الأغلى
-      if (sort === "expensive") {
-        return b.price - a.price;
-      }
-
-      // 🔤 أبجديًا (حسب اللغة الحالية)
       if (sort === "alpha") {
-        const nameA =
-          translations.flowers[a.nameKey]?.toLowerCase() || "";
-        const nameB =
-          translations.flowers[b.nameKey]?.toLowerCase() || "";
-        return nameA.localeCompare(nameB);
+        return getFlowerName(a)
+          .toLowerCase()
+          .localeCompare(getFlowerName(b).toLowerCase());
       }
 
       return 0;
@@ -68,13 +87,17 @@ export default function Shop() {
   }, [activeFilter, bestSellers, search, sort, translations]);
 
   return (
-    <div className="shop">
-      {/* ===== Filter Bar ===== */}
+    <div className="shop-page">
       <div className="shop-filter">
-        {/* Filter */}
+
+        {/* ===== Filter ===== */}
         <div
           className="filter-left"
-          onClick={() => setFilterOpen((prev) => !prev)}
+          ref={filterRef}
+          onClick={() => {
+            setFilterOpen((prev) => !prev);
+            setSortOpen(false);
+          }}
         >
           <span className="filter-icon">🔻</span>
           <span>{t.filtering}</span>
@@ -90,7 +113,7 @@ export default function Shop() {
                   setFilterOpen(false);
                 }}
               >
-                {t.bestSellers}
+                {t.best_sellers}
               </div>
 
               <div
@@ -102,27 +125,30 @@ export default function Shop() {
                   setFilterOpen(false);
                 }}
               >
-                {t.allTypes}
+                {t.all_types}
               </div>
             </div>
           )}
         </div>
 
-        {/* Search */}
+        {/* ===== Search ===== */}
         <div className="filter-search">
           <input
             type="text"
-            placeholder={t.searchPlaceholder}
+            placeholder={t.search}
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
-          <span className="search-icon">🔍</span>
         </div>
 
-        {/* Sort */}
+        {/* ===== Sort ===== */}
         <div
           className="filter-right"
-          onClick={() => setSortOpen((prev) => !prev)}
+          ref={sortRef}
+          onClick={() => {
+            setSortOpen((prev) => !prev);
+            setFilterOpen(false);
+          }}
         >
           <span className="filter-icon">🔻</span>
           <span>{t.sort}</span>
@@ -153,7 +179,6 @@ export default function Shop() {
                 {t.expensive}
               </div>
 
-              {/* 🔤 أبجديًا */}
               <div
                 className={`filter-option ${
                   sort === "alpha" ? "active" : ""
@@ -172,31 +197,30 @@ export default function Shop() {
 
       {/* ===== Products ===== */}
       <div className="products">
-        {displayedFlowers.map((flower) => (
-          <div key={flower.id} className="product-card">
-            <img
-              src={flower.image}
-              alt={translations.flowers[flower.nameKey]}
-            />
+        {displayedFlowers.map((flower) => {
+          const flowerName = getFlowerName(flower);
 
-            <h3>
-              {translations.flowers[flower.nameKey] || flower.name}
-            </h3>
+          return (
+            <div key={flower.id} className="product-card">
+              <img src={flower.image} alt={flowerName} />
+              <h3>{flowerName}</h3>
 
-            <div className="product-footer">
-              <span>{flower.price}$</span>
-              <button onClick={() => addToCart(flower)}>
-                🛒 {t.addToCart}
-              </button>
+              <div className="product-footer">
+                <span>{flower.price}$</span>
+                <button
+                  className="btn-secondary"
+                  onClick={() => addToCart(flower)}
+                >
+                  🛒 {t.add_to_cart}
+                </button>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       {displayedFlowers.length === 0 && (
-        <p style={{ textAlign: "center", marginTop: "40px" }}>
-          {t.noResults}
-        </p>
+        <p>{t.no_results}</p>
       )}
     </div>
   );

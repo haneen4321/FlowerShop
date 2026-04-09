@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
+import "./presentation/styles/responsive.css";
 
 import { LanguageProvider } from "./presentation/context/LanguageContext";
 import { AuthProvider } from "./presentation/context/AuthContext";

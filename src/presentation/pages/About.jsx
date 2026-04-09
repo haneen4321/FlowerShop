@@ -1,33 +1,23 @@
-import "../styles/global.css";
-import "../styles/about.css";
 import { useLanguage } from "../context/LanguageContext";
+import "../styles/global.css";
 export default function About() {
   const { translations } = useLanguage();
-  const about = translations.about;
-
+  const t = {...translations.global, ...translations.about,};
   return (
-      <div className="about-page">
-      <h1 className="about-title">{about.title}</h1>
-
-      <p className="about-text">{about.intro}</p>
-
-      <section className="about-section">
-        <h2>{about.missionTitle}</h2>
-        <p>{about.missionText}</p>
+      <div className="page">
+      <h1>{t.about}</h1>
+      <p>{t.intro}</p>
+      <section>
+        <h2>{t.mission_title}</h2>
+        <p>{t.mission_text}</p>
       </section>
-
-      <section className="about-section">
-        <h2>{about.visionTitle}</h2>
-        <p>{about.visionText}</p>
+      <section>
+        <h2>{t.vision_title}</h2>
+        <p>{t.vision_text}</p>
       </section>
-
-      <section className="about-section">
-        <h2>{about.goalsTitle}</h2>
-        <ul>
-          {about.goals.map((goal, index) => (
-            <li key={index}>{goal}</li>
-          ))}
-        </ul>
+      <section>
+        <h2>{t.goals_title}</h2>
+        <ul>{t.goals_text.map((goal, index) => (<li key={index}>{goal}</li>))}</ul>
       </section>
     </div>
   );

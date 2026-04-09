@@ -2,16 +2,21 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useLanguage } from "../context/LanguageContext";
+import {
+  isValidEmail,
+  isValidPassword,
+  getPasswordRequirements,
+} from "../components/validation";
+import LanguageOnly from "../components/layout/LanguageOnly";
 import "../styles/auth.css";
-
-// ✅ Email validation helper
-const isValidEmail = (email) => {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-};
 
 export default function Register() {
   const { translations } = useLanguage();
-  const t = translations.auth;
+  const t = {
+    ...translations.global,
+    ...translations.buttons,
+    ...translations.auth,
+  };
 
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
@@ -23,26 +28,27 @@ export default function Register() {
   const { login } = useAuth();
   const navigate = useNavigate();
 
+  const passwordRules = getPasswordRequirements(password);
+
   const handleRegister = () => {
-    // 🔴 تحقق من الحقول الفارغة
     if (!email || !username || !password) return;
 
-    // 🔴 تحقق من صحة البريد
     if (!isValidEmail(email)) {
-      setEmailError(t.invalidEmail);
+      setEmailError(t.invalid_email);
       return;
     }
-
     setEmailError("");
+
+    if (!isValidPassword(password)) {
+      return;
+    }
 
     const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    // 🔴 تحقق من تكرار اسم المستخدم
     if (users.some((u) => u.username === username)) {
-      setUsernameError(t.usernameTaken);
+      setUsernameError(t.username_taken);
       return;
     }
-
     setUsernameError("");
 
     const newUser = {
@@ -61,30 +67,45 @@ export default function Register() {
 
   return (
     <div className="auth-wrapper">
+      <div className="auth-lang">
+        <LanguageOnly />
+      </div>
+
       <div className="auth-container">
         <div className="auth-form">
           <Link to="/" className="back-home">
-            🏠 {t.backToHome}
+            🏠 {t.back_to_home}
           </Link>
 
           <h1>{t.registerTitle}</h1>
-          <p className="subtitle">{t.registerSubtitle}</p>
+          <p className="subtitle">{t.register_subtitle}</p>
 
+          {/* EMAIL */}
           <input
             type="email"
             placeholder={t.email}
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              setEmailError("");
+            }}
           />
           {emailError && <p className="error-text">{emailError}</p>}
 
+          {/* USERNAME */}
           <input
             placeholder={t.username}
             value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={(e) => {
+              setUsername(e.target.value);
+              setUsernameError("");
+            }}
           />
-          {usernameError && <p className="error-text">{usernameError}</p>}
+          {usernameError && (
+            <p className="error-text">{usernameError}</p>
+          )}
 
+          {/* PASSWORD */}
           <input
             type="password"
             placeholder={t.password}
@@ -92,12 +113,34 @@ export default function Register() {
             onChange={(e) => setPassword(e.target.value)}
           />
 
+          {/* 🔥 Password Requirements */}
+          {password && (
+            <div className="password-rules">
+              {!passwordRules.minLength && (
+                <p>{t.role_1}</p>
+              )}
+
+              {!passwordRules.hasUpperCase && (
+                <p>{t.role_2}</p>
+              )}
+
+              {!passwordRules.hasLowerCase && (
+                <p>{t.role_3}</p>
+              )}
+
+              {!passwordRules.hasNumber && (
+                <p>{t.role_4}</p>
+              )}
+            </div>
+          )}
+
           <button className="auth-btn" onClick={handleRegister}>
-            {t.registerButton}
+            {t.register}
           </button>
 
           <div className="auth-footer">
-            {t.haveAccount} <Link to="/login">{t.loginButton}</Link>
+            {t.have_account}{" "}
+            <Link to="/login">{t.login}</Link>
           </div>
         </div>
 

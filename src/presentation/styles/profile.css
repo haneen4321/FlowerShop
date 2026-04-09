@@ -1,25 +1,30 @@
+/* ===== Profile Page Layout ===== */
+
 .profile-page {
   min-height: calc(100vh - 80px);
-  background: #fafafa;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  padding-top: 40px;
+  background: var(--color-bg-main);
 }
 
 .profile-card {
   width: 900px;
   max-width: 95%;
-  background: #fff;
+  background: var(--color-bg-white);
   border-radius: 12px;
   padding: 40px;
+  box-shadow: var(--shadow-soft);
 }
 
-/* Header */
+/* ===== Header ===== */
+
 .profile-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--color-border-light);
   padding-bottom: 20px;
 }
 
@@ -30,15 +35,22 @@
   margin-left: 10px;
   cursor: pointer;
   font-size: 14px;
+  color: var(--color-text-medium);
+  transition: all 0.2s ease;
+}
+
+.profile-tabs button:hover {
+  color: var(--color-primary);
 }
 
 .profile-tabs button.active {
-  background: #ff8c42;
-  color: white;
+  background: var(--color-primary);
+  color: var(--color-text-white);
   border-radius: 6px;
 }
 
-/* Sections */
+/* ===== Sections ===== */
+
 .profile-section {
   margin-top: 30px;
   max-width: 400px;
@@ -49,32 +61,49 @@
   flex-direction: column;
   margin-bottom: 20px;
   font-size: 14px;
+  color: var(--color-text-medium);
 }
 
 .profile-section input {
   margin-top: 6px;
   padding: 12px;
   border-radius: 8px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--color-border-input);
+  background: var(--color-bg-white);
+  color: var(--color-text-dark);
+  transition: border 0.2s ease;
 }
 
 .profile-section input:focus {
   outline: none;
-  border-color: #ff8c42;
+  border-color: var(--color-primary);
 }
 
+/* ===== Buttons ===== */
+
 .save-btn {
-  background: #ff8c42;
-  color: white;
+  background: var(--color-primary);
+  color: var(--color-text-white);
   border: none;
   padding: 12px 24px;
   border-radius: 8px;
   cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
 }
+
+.save-btn:hover {
+  background: var(--color-primary-hover);
+}
+
+.save-btn:active {
+  transform: scale(0.98);
+}
+
+/* ===== Messages ===== */
 
 .success-message {
   margin-top: 10px;
-  color: #ff8c42;
+  color: var(--color-primary);
   font-size: 14px;
   font-weight: 500;
 }

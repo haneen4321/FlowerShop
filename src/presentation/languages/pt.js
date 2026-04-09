@@ -1,0 +1,115 @@
+export const pt = {
+  global: {
+    home: "Início",
+    shop: "Loja",
+    about: "Sobre nós",
+    profile: "Perfil",
+    logout: "Sair",
+    home_h1: "Flores, o que o mundo precisa.",
+    best_sellers: "Mais vendidos",
+    login: "Entrar",
+    email: "Email",
+    username: "Nome de usuário",
+    password: "Senha",
+    invalid_email: "Email inválido",
+    first_name: "Nome",
+    last_name: "Sobrenome",
+    phone_num: "Telefone",
+    username_taken: "Nome de usuário já em uso",
+    invalid_passwors: "Senha incorreta",
+    register: "Registrar",
+  },
+
+  buttons: {
+    add_to_cart: "Adicionar ao carrinho",
+    browse: "Navegar",
+    checkout: "Finalizar compra",
+    save_changes: "Salvar alterações",
+  },
+
+  flowers: {
+    lotus: "Lótus",
+    jasmine: "Jasmim",
+    daisy: "Margarida",
+    cherry_blossom: "Flor de cerejeira",
+    sunflower: "Girassol",
+    rose: "Rosa",
+    periwinkle: "Pervinca",
+    orchid: "Orquídea",
+    lily: "Lírio",
+    lavender: "Lavanda",
+    iris: "Íris",
+    hydrangea: "Hortênsia",
+    clove: "Cravo",
+    centaurea_cyanus: "Centáurea",
+    anemone: "Anêmona",
+    tulip: "Tulipa",
+    rosa_damascena: "Rosa Damascena",
+    poppy: "Papoula",
+    plumeria: "Frangipani",
+    peony: "Peônia",
+  },
+
+  shop: {
+    filtering: "Filtrar por",
+    all_types: "Todos os tipos",
+    search: "Pesquisar...",
+    sort: "Ordenar por",
+    cheap: "Mais barato",
+    expensive: "Mais caro",
+    alphabetical: "Alfabético",
+    no_results: "Nenhuma flor encontrada",
+  },
+
+  about: {
+    intro: "A loja Flovers é uma extensão de nossa galeria atual, que é a maior exposição especializada em flores artificiais em Medina. Na nossa loja, oferecemos uma ampla gama de flores artificiais e acessórios a preços competitivos.",
+    mission_title: "Nossa Missão",
+    mission_text: "Na Flovers, buscamos oferecer uma variedade de produtos com designs diversos, alta qualidade e aparência natural, que adicionam beleza e alegria aos seus arranjos e presentes, ajudando nossos clientes a adicionar elegância e criatividade.",
+    vision_title: "Nossa Visão",
+    vision_text: "Nosso objetivo é ser o destino principal para todos que procuram flores artificiais e acessórios, e buscamos expandir nossa coleção para incluir opções mais bonitas e inovadoras.",
+    goals_title: "Nossos Objetivos",
+    goals_text: [
+      "Fornecer uma ampla variedade de flores artificiais e arranjos florais com designs diversos e atraentes.",
+      "Garantir a qualidade do produto e a satisfação do cliente por meio de excelente atendimento.",
+      "Expandir no mercado e aumentar a conscientização sobre flores artificiais e diferentes técnicas de arranjo.",
+    ],
+  },
+
+  cart: {
+    loading_cart: "Carregando carrinho...",
+    empty: "O carrinho está vazio",
+    total: "Total",
+  },
+
+  footer: {
+    p1: "A loja Flower oferece uma ampla gama de flores artificiais e arranjos florais projetados para adicionar beleza e elegância a várias ocasiões.",
+    p2: "Estamos comprometidos com qualidade, criatividade e satisfação do cliente, tornando-nos um destino confiável para designs florais únicos e acessórios elegantes.",
+    links: "Links",
+    contact: "Contato",
+  },
+
+  auth: {
+    login_subtitle: "Bem-vindo de volta! Por favor, faça login na sua conta.",
+    register_subtitle: "Junte-se a nós e comece a explorar flores bonitas.",
+    invalid_username: "Nome de usuário inválido",
+    invalid_password: "Senha inválida",
+    no_account: "Não tem uma conta?",
+    have_account: "Já tem uma conta?",
+    back_to_home: "Voltar para a página inicial",
+    role_1: "Deve ter pelo menos 8 caracteres",
+    role_2: "Deve conter uma letra maiúscula (A–Z)",
+    role_3: "Deve conter uma letra minúscula (a–z)",
+    role_4: "Deve conter um número (0–9)",
+  },
+
+  profile: {
+    title: "Configurações da conta",
+    current_password: "Senha atual",
+    new_password: "Nova senha",
+    confirm_password: "Confirmar senha",
+    profile: "Perfil",
+    password: "Senha",
+    addresses: "Endereços",
+    payments: "Métodos de pagamento"
+  }
+};

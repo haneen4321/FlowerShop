@@ -1,14 +1,16 @@
-html,
-body {
+@import "./colors.css";
+@import "./buttons.css";
+@import "./fonts.css";
+@import "./responsive.css";
+
+html, body {
   height: 100%;
+  margin: 0;
+  background-color: var(--color-bg-main);
 }
 
 body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #fafafa;
-  color: #222;
-
+  /* font-family: Arial, Helvetica, sans-serif; */
   display: flex;
   flex-direction: column;
 }
@@ -19,7 +21,22 @@ body {
   flex-direction: column;
 }
 
-button {
-  cursor: pointer;
-  border: none;
+.logo {
+  width: 180px;
+}
+
+.page {
+  padding: 60px 400px 80px;
+}
+
+.box {
+  background: var(--color-bg-white);
+  border: 2px solid var(--color-primary);
+  border-radius: 10px;
+}
+
+.container {
+  max-width: var(--max-width);
+  padding: 0 var(--container-padding);
+  margin: auto;
 }

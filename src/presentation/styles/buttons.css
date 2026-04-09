@@ -1,0 +1,32 @@
+button {
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-text-white);
+}
+
+.btn-secondary {
+  background: none;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.btn-text {
+  border-radius: 10px;
+  font-size: 30px;
+  width: 45px;
+  height: 45px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Cart Page's Buttons */
+.checkout-btn {
+  padding: 20px 200px;
+  border-radius: 20px;
+  font-size: 50px;
+  display: inline-block;
+}

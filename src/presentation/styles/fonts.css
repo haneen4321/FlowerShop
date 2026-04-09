@@ -1,0 +1,72 @@
+/* ==================== Typography ==================== */
+
+h1 {
+  display: flex;
+  justify-content: center;
+  font-size: 3rem; /* كان 50px */
+  margin-bottom: 1.875rem; /* كان 30px */
+  color: var(--color-text-dark);
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+  font-size: 2.5rem; /* كان 40px */
+  color: var(--color-primary);
+  margin-bottom: 0.625rem; /* كان 10px */
+}
+
+h3 {
+  font-size: 2.5rem; /* كان 40px */
+  color: var(--color-text-dark);
+}
+
+p {
+  text-align: center;
+  font-size: 1.875rem; /* كان 30px */
+  color: var(--color-text-light);
+  margin: 0.625rem auto; /* كان 10px */
+}
+
+li {
+  text-align: center;
+  list-style: none;
+  font-size: 1.875rem; /* كان 30px */
+  margin: 0.625rem; /* كان 10px */
+  color: var(--color-text-light);
+}
+
+span {
+  font-size: 1.875rem; /* كان 30px */
+  color: var(--color-text-dark);
+}
+
+/* ==================== Fonts ==================== */
+
+/* Arabic font */
+@font-face {
+  font-family: "ArFont";
+  src: url("/fonts/Arabic_Font.ttf") format("truetype");
+}
+
+html[lang="ar"] body {
+  font-family: "ArFont", sans-serif;
+}
+
+/* English and other Latin-based fonts */
+@font-face {
+  font-family: "EnFont";
+  src: url("/fonts/English_Font.otf") format("truetype");
+}
+
+html[lang="en"] body,
+html[lang="fr"] body,
+html[lang="es"] body,
+html[lang="pt"] body,
+html[lang="de"] body,
+html[lang="hi"] body,
+html[lang="zh"] body,
+html[lang="jp"] body,
+html[lang="ru"] body {
+  font-family: "EnFont", sans-serif;
+}

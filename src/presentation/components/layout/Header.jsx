@@ -1,38 +1,57 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import "../../styles/Layout.css";
+import "../../styles/layout.css";
 import { useLanguage } from "../../context/LanguageContext";
 import { useAuth } from "../../context/AuthContext";
+import LanguageOnly from "./LanguageOnly";
 
 export default function Header() {
-  const { lang, setLang, languages, translations } = useLanguage();
+  const { translations } = useLanguage();
   const { user, logout } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
 
   const [showMenu, setShowMenu] = useState(false);
+  const menuRef = useRef(null); // 👈 مهم
 
   const isAuthPage =
-    location.pathname === "/login" ||
-    location.pathname === "/register";
+    location.pathname === "/login" || location.pathname === "/register";
 
-  const t = translations.header;
+  const t = { ...translations.global };
 
   const handleLogout = () => {
     logout();
-    setShowMenu(false);
     navigate("/login");
   };
+
+  // ✅ إغلاق القائمة عند الضغط خارجها
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setShowMenu(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <header className="header">
       {!isAuthPage && (
         <>
-          <div className="header__logo">
-            <span className="logo-accent">Flower</span> Shop
-          </div>
+          <Link to="/" className="logo-wrapper">
+            <img
+              className="logo"
+              src="/images/flower-shop-logo-light.png"
+              alt="Flower Shop Logo"
+            />
+          </Link>
 
-          <nav className="header__nav">
+          <nav className="pages-nav">
             <Link to="/">{t.home}</Link>
             <Link to="/shop">{t.shop}</Link>
             <Link to="/about">{t.about}</Link>
@@ -40,40 +59,25 @@ export default function Header() {
         </>
       )}
 
-      <div className="header__icons">
-        <select
-          value={lang}
-          onChange={(e) => setLang(e.target.value)}
-          className="lang-select"
-        >
-          {Object.entries(languages).map(([code, info]) => (
-            <option key={code} value={code}>
-              {info.label}
-            </option>
-          ))}
-        </select>
+      <div className="header-icons">
+        <LanguageOnly />
 
         {!isAuthPage && (
           <>
-            {user && (
-              <div className="user-menu">
+            {user ? (
+              <div className="user-menu" ref={menuRef}>
                 <button
-                  className="user-icon"
+                  className="btn-text btn-secondary"
                   onClick={() => setShowMenu((prev) => !prev)}
                 >
                   👤
                 </button>
 
                 {showMenu && (
-                  <div className="header-dropdown">
-                    <Link
-                      to="/profile"
-                      className="header-option"
-                      onClick={() => setShowMenu(false)}
-                    >
+                  <div className="header-dropdown box">
+                    <Link to="/profile" className="header-option">
                       {t.profile}
                     </Link>
-
                     <button
                       onClick={handleLogout}
                       className="header-option"
@@ -83,9 +87,20 @@ export default function Header() {
                   </div>
                 )}
               </div>
+            ) : (
+              <button
+                className="btn-text btn-secondary"
+                onClick={() => navigate("/login")}
+              >
+                👤
+              </button>
             )}
 
-            <Link to="/cart">🛒</Link>
+            <button
+              className="btn-text btn-secondary"
+              onClick={() => navigate("/cart")}
+            >🛒
+            </button>
           </>
         )}
       </div>

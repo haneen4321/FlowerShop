@@ -1,33 +1,44 @@
-.shop {
+/* ===== Shop Page ===== */
+
+.shop-page {
   padding: 40px 100px 80px;
+  background: var(--color-bg-main);
 }
 
+/* ===== Filter Bar ===== */
+
 .shop-filter {
-  background: white;
+  background: var(--color-bg-white);
   border-radius: 10px;
   padding: 18px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 40px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--color-border-light);
 }
 
 /* ===== Filter & Sort Base ===== */
-.filter-left, .filter-right {
+
+.filter-left,
+.filter-right {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #ff8c42;
+  color: var(--color-primary);
   font-weight: 600;
   cursor: pointer;
   position: relative;
+  transition: color 0.2s ease;
 }
 
-.filter-right {gap: 6px;}
-
-.sort-icon {font-size: 14px;}
+.sort-icon {
+  font-size: 14px;
+}
 
 /* ===== Search ===== */
+
 .filter-search {
   position: relative;
   width: 40%;
@@ -37,44 +48,49 @@
   width: 100%;
   padding: 12px 40px 12px 14px;
   border-radius: 8px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--color-border-input);
   outline: none;
+  background: var(--color-bg-white);
+  color: var(--color-text-dark);
+  transition: border 0.2s ease, box-shadow 0.2s ease;
 }
 
-.search-icon {
-  position: absolute;
-  right: 14px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #777;
+.filter-search input:focus {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-dropdown);
 }
 
 /* ===== Dropdown ===== */
+
 .filter-dropdown {
   position: absolute;
   top: 45px;
   left: 0;
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  background: var(--color-bg-white);
+  border: 2px solid var(--color-primary);
+  border-radius: 10px;
   min-width: 150px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   z-index: 10;
+  box-shadow: var(--shadow-dropdown-strong);
+  overflow: hidden;
 }
+
+/* ===== Dropdown Options ===== */
 
 .filter-option {
   padding: 10px 14px;
   cursor: pointer;
   font-size: 14px;
   text-align: start;
+  color: var(--color-primary);
 }
 
 .filter-option:hover {
-  background: #f5f5f5;
+  background: var(--color-bg-main);
 }
 
 .filter-option.active {
-  background: #fff6e6;
+  background: var(--color-primary-light);
   font-weight: bold;
 }
 

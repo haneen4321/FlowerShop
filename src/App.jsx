@@ -1,14 +1,15 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Header from "./presentation/components/layout/Header";
 import Footer from "./presentation/components/layout/Footer";
-import LanguageOnlyHeader from "./presentation/components/layout/LanguageOnlyHeader";
 import Home from "./presentation/pages/Home";
 import Shop from "./presentation/pages/Shop";
 import About from "./presentation/pages/About";
 import Login from "./presentation/pages/Login";
 import Register from "./presentation/pages/Register";
 import Cart from "./presentation/pages/Cart";
-import Profile from "./presentation/pages/Profile";
+import Profile from "./presentation/pages/profile/Profile";
+import "./presentation/styles/responsive.css";
+
 
 /* ===== Layout ===== */
 function Layout() {
@@ -20,7 +21,8 @@ function Layout() {
 
   return (
     <>
-      {isAuthPage ? <LanguageOnlyHeader /> : <Header />}
+      {/* Header يظهر فقط إذا لم تكن صفحة مصادقة */}
+      {!isAuthPage && <Header />}
 
       <main className="main-content">
         <Routes>
@@ -34,6 +36,7 @@ function Layout() {
         </Routes>
       </main>
 
+      {/* Footer يظهر فقط إذا لم تكن صفحة مصادقة */}
       {!isAuthPage && <Footer />}
     </>
   );

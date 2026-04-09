@@ -1,0 +1,27 @@
+:root {
+  /* Primary */
+  --color-primary: #EC6988;
+  --color-primary-hover: #E85580;
+  --color-primary-light: #fff6e6;
+
+  /* Text */
+  --color-text-dark: #222;
+  --color-text-medium: #444;
+  --color-text-light: #555;
+  --color-text-muted: #777;
+  --color-text-white: #ffffff;
+
+  /* Backgrounds */
+  --color-bg-main: #fafafa;
+  --color-bg-white: #ffffff;
+  --color-bg-footer: #3f3f3f;
+
+  /* Borders */
+  --color-border-light: #eee;
+  --color-border-input: #ddd;
+
+  /* Shadows */
+  --shadow-soft: 0 4px 10px rgba(0, 0, 0, 0.05);
+  --shadow-dropdown: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-dropdown-strong: 0 4px 12px rgba(0, 0, 0, 0.1);
+}

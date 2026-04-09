@@ -1,0 +1,115 @@
+export const de = {
+  global: {
+    home: "Startseite",
+    shop: "Shop",
+    about: "Über uns",
+    profile: "Profil",
+    logout: "Abmelden",
+    home_h1: "Blumen, was die Welt braucht.",
+    best_sellers: "Bestseller",
+    login: "Anmelden",
+    email: "E-Mail",
+    username: "Benutzername",
+    password: "Passwort",
+    invalid_email: "Ungültige E-Mail",
+    first_name: "Vorname",
+    last_name: "Nachname",
+    phone_num: "Telefonnummer",
+    username_taken: "Benutzername bereits vergeben",
+    invalid_passwors: "Falsches Passwort",
+    register: "Registrieren",
+  },
+
+  buttons: {
+    add_to_cart: "In den Warenkorb",
+    browse: "Durchsuchen",
+    checkout: "Zur Kasse",
+    save_changes: "Änderungen speichern",
+  },
+
+  flowers: {
+    lotus: "Lotus",
+    jasmine: "Jasmin",
+    daisy: "Gänseblümchen",
+    cherry_blossom: "Kirschblüte",
+    sunflower: "Sonnenblume",
+    rose: "Rose",
+    periwinkle: "Immergrün",
+    orchid: "Orchidee",
+    lily: "Lilie",
+    lavender: "Lavendel",
+    iris: "Iris",
+    hydrangea: "Hortensie",
+    clove: "Nelke",
+    centaurea_cyanus: "Kornblume",
+    anemone: "Anemone",
+    tulip: "Tulpe",
+    rosa_damascena: "Damaszener Rose",
+    poppy: "Mohn",
+    plumeria: "Frangipani",
+    peony: "Pfingstrose",
+  },
+
+  shop: {
+    filtering: "Filtern nach",
+    all_types: "Alle Typen",
+    search: "Suche...",
+    sort: "Sortieren nach",
+    cheap: "Günstig",
+    expensive: "Teuer",
+    alphabetical: "Alphabetisch",
+    no_results: "Keine Blumen gefunden",
+  },
+
+  about: {
+    intro: "Der Flovers-Shop ist eine Erweiterung unserer aktuellen Galerie, die die größte spezialisierte Ausstellung für künstliche Blumen in Medina ist. In unserem Shop bieten wir eine große Auswahl an künstlichen Blumen und Zubehör zu wettbewerbsfähigen Preisen an.",
+    mission_title: "Unsere Mission",
+    mission_text: "Bei Flovers bemühen wir uns, eine Vielzahl von Produkten mit unterschiedlichen Designs, hoher Qualität und natürlichem Aussehen anzubieten, die Ihren Arrangements und Geschenken Schönheit und Freude verleihen und unseren Kunden helfen, Eleganz und Kreativität hinzuzufügen.",
+    vision_title: "Unsere Vision",
+    vision_text: "Wir streben danach, die erste Anlaufstelle für alle zu sein, die künstliche Blumen und Zubehör suchen, und möchten unsere Kollektion erweitern, um schönere und innovativere Optionen anzubieten.",
+    goals_title: "Unsere Ziele",
+    goals_text: [
+      "Ein breites Sortiment an künstlichen Blumen und Blumenarrangements mit vielfältigen und attraktiven Designs anbieten.",
+      "Produktqualität und Kundenzufriedenheit durch exzellenten Kundenservice sicherstellen.",
+      "Den Markt erweitern und das Bewusstsein für künstliche Blumen und verschiedene Arrangementstechniken erhöhen.",
+    ],
+  },
+
+  cart: {
+    loading_cart: "Warenkorb wird geladen...",
+    empty: "Der Warenkorb ist leer",
+    total: "Gesamt",
+  },
+
+  footer: {
+    p1: "Der Flower-Shop bietet eine breite Palette künstlicher Blumen und Blumenarrangements, die darauf ausgelegt sind, verschiedenen Anlässen Schönheit und Eleganz zu verleihen.",
+    p2: "Wir verpflichten uns zu Qualität, Kreativität und Kundenzufriedenheit und sind somit eine vertrauenswürdige Anlaufstelle für einzigartige Blumendesigns und elegante Accessoires.",
+    links: "Links",
+    contact: "Kontakt",
+  },
+
+  auth: {
+    login_subtitle: "Willkommen zurück! Bitte melden Sie sich in Ihrem Konto an.",
+    register_subtitle: "Treten Sie uns bei und entdecken Sie wunderschöne Blumen.",
+    invalid_username: "Ungültiger Benutzername",
+    invalid_password: "Ungültiges Passwort",
+    no_account: "Haben Sie noch kein Konto?",
+    have_account: "Haben Sie bereits ein Konto?",
+    back_to_home: "Zurück zur Startseite",
+    role_1: "Muss mindestens 8 Zeichen lang sein",
+    role_2: "Muss einen Großbuchstaben (A–Z) enthalten",
+    role_3: "Muss einen Kleinbuchstaben (a–z) enthalten",
+    role_4: "Muss eine Zahl (0–9) enthalten",
+  },
+
+  profile: {
+    title: "Kontoeinstellungen",
+    current_password: "Aktuelles Passwort",
+    new_password: "Neues Passwort",
+    confirm_password: "Passwort bestätigen",
+    profile: "Profil",
+    password: "Passwort",
+    addresses: "Adressen",
+    payments: "Zahlungsmethoden"
+  }
+};

@@ -1,0 +1,115 @@
+export const jp = {
+  global: {
+    home: "ホーム",
+    shop: "ショップ",
+    about: "私たちについて",
+    profile: "プロフィール",
+    logout: "ログアウト",
+    home_h1: "花、それは世界に必要なもの。",
+    best_sellers: "ベストセラー",
+    login: "ログイン",
+    email: "メールアドレス",
+    username: "ユーザー名",
+    password: "パスワード",
+    invalid_email: "無効なメールアドレス",
+    first_name: "名",
+    last_name: "姓",
+    phone_num: "電話番号",
+    username_taken: "ユーザー名は既に使用されています",
+    invalid_passwors: "パスワードが間違っています",
+    register: "登録",
+  },
+
+  buttons: {
+    add_to_cart: "カートに追加",
+    browse: "閲覧",
+    checkout: "チェックアウト",
+    save_changes: "変更を保存",
+  },
+
+  flowers: {
+    lotus: "蓮",
+    jasmine: "ジャスミン",
+    daisy: "デイジー",
+    cherry_blossom: "桜",
+    sunflower: "ひまわり",
+    rose: "バラ",
+    periwinkle: "ツルニチニチソウ",
+    orchid: "ラン",
+    lily: "ユリ",
+    lavender: "ラベンダー",
+    iris: "アイリス",
+    hydrangea: "アジサイ",
+    clove: "クローブ",
+    centaurea_cyanus: "ヤグルマギク",
+    anemone: "アネモネ",
+    tulip: "チューリップ",
+    rosa_damascena: "ダマスクローズ",
+    poppy: "ポピー",
+    plumeria: "プルメリア",
+    peony: "ボタン",
+  },
+
+  shop: {
+    filtering: "フィルター",
+    all_types: "すべての種類",
+    search: "検索...",
+    sort: "並べ替え",
+    cheap: "最安値",
+    expensive: "最高値",
+    alphabetical: "アルファベット順",
+    no_results: "花が見つかりません",
+  },
+
+  about: {
+    intro: "Floversストアは、現在のギャラリーの拡張であり、マディーナで最大の人工花専門展示です。ストアでは、幅広い人工花とアクセサリーを競争力のある価格で提供しています。",
+    mission_title: "私たちのミッション",
+    mission_text: "Floversでは、多様なデザイン、高品質、自然な見た目のさまざまな製品を提供し、お客様のアレンジやギフトに美しさと喜びを加え、エレガンスと創造性を引き出すことを目指しています。",
+    vision_title: "私たちのビジョン",
+    vision_text: "人工花やアクセサリーを探すすべての人にとって第一の目的地となることを目指し、さらに美しく革新的な選択肢を提供するためにコレクションを拡大していきます。",
+    goals_title: "私たちの目標",
+    goals_text: [
+      "多様で魅力的なデザインの人工花とフラワーアレンジメントを提供する。",
+      "優れたカスタマーサービスを通じて製品品質と顧客満足を保証する。",
+      "市場を拡大し、人工花やさまざまなアレンジ技術についての認知度を高める。",
+    ],
+  },
+
+  cart: {
+    loading_cart: "カートを読み込み中...",
+    empty: "カートは空です",
+    total: "合計",
+  },
+
+  footer: {
+    p1: "Flowerストアは、さまざまなイベントに美しさと優雅さを加えるために設計された人工花とフラワーアレンジメントを提供します。",
+    p2: "私たちは品質、創造性、顧客満足に取り組んでおり、ユニークなフラワーデザインとエレガントなアクセサリーの信頼できる目的地です。",
+    links: "リンク",
+    contact: "お問い合わせ",
+  },
+
+  auth: {
+    login_subtitle: "お帰りなさい！アカウントにログインしてください。",
+    register_subtitle: "参加して、美しい花々を探し始めましょう。",
+    invalid_username: "無効なユーザー名",
+    invalid_password: "パスワードが正しくありません",
+    no_account: "アカウントをお持ちではありませんか？",
+    have_account: "すでにアカウントをお持ちですか？",
+    back_to_home: "ホームページに戻る",
+    role_1: "8文字以上である必要があります",
+    role_2: "少なくとも1つの大文字（A–Z）を含める必要があります",
+    role_3: "少なくとも1つの小文字（a–z）を含める必要があります",
+    role_4: "少なくとも1つの数字（0–9）を含める必要があります",
+  },
+
+  profile: {
+    title: "アカウント設定",
+    current_password: "現在のパスワード",
+    new_password: "新しいパスワード",
+    confirm_password: "パスワードの確認",
+    profile: "プロフィール",
+    password: "パスワード",
+    addresses: "住所",
+    payments: "支払い方法"
+  }
+};

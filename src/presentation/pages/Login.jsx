@@ -2,28 +2,35 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useLanguage } from "../context/LanguageContext";
+import LanguageOnly from "../components/layout/LanguageOnly";
 import "../styles/auth.css";
+import "../styles/global.css";
 
 export default function Login() {
   const { translations } = useLanguage();
-  const t = translations.auth;
+  const t = {
+    ...translations.global,
+    ...translations.buttons,
+    ...translations.auth,
+  };
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [loginError, setLoginError] = useState(""); // ✅ جديد
-
+  const [loginError, setLoginError] = useState("");
   const { login } = useAuth();
   const navigate = useNavigate();
 
   const handleLogin = () => {
     const users = JSON.parse(localStorage.getItem("users")) || [];
-
-    const user = users.find(
-      (u) => u.username === username && u.password === password
-    );
+    const user = users.find((u) => u.username === username);
 
     if (!user) {
-      setLoginError(t.invalidCredentials);
+      setLoginError(t.invalid_username); // اسم المستخدم غير موجود
+      return;
+    }
+
+    if (user.password !== password) {
+      setLoginError(t.invalid_password); // كلمة المرور غير صحيحة
       return;
     }
 
@@ -34,14 +41,15 @@ export default function Login() {
 
   return (
     <div className="auth-wrapper">
+      {/* 🌍 Language Selector */}
+      <div className="auth-lang">
+        <LanguageOnly />
+      </div>
+
       <div className="auth-container">
         <div className="auth-form">
-          <Link to="/" className="back-home">
-            🏠 {t.backToHome}
-          </Link>
-
-          <h1>{t.loginTitle}</h1>
-          <p className="subtitle">{t.loginSubtitle}</p>
+          <Link to="/" className="back-home">🏠 {t.back_to_home}</Link>
+          <p className="subtitle">{t.login_subtitle}</p>
 
           <input
             placeholder={t.username}
@@ -56,18 +64,14 @@ export default function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          {loginError && (
-            <p className="error-text">
-              {loginError}
-            </p>
-          )}
+          {loginError && <p className="error-text">{loginError}</p>}
 
           <button className="auth-btn" onClick={handleLogin}>
-            {t.loginButton}
+            {t.login}
           </button>
 
           <div className="auth-footer">
-            {t.noAccount} <Link to="/register">{t.registerButton}</Link>
+            {t.no_account} <Link to="/register">{t.register}</Link>
           </div>
         </div>
 
