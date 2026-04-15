@@ -1,8 +1,6 @@
 import UserRepository from "../../domain/repositories/UserRepository";
 import User from "../../domain/entities/User";
-
 export default class UserRepositoryImpl extends UserRepository {
-
   login(username, password) {
     const users = JSON.parse(localStorage.getItem("users")) || [];
 
@@ -15,7 +13,6 @@ export default class UserRepositoryImpl extends UserRepository {
     }
 
     localStorage.setItem("currentUser", JSON.stringify(foundUser));
-
     return new User(foundUser);
   }
 
@@ -33,23 +30,18 @@ export default class UserRepositoryImpl extends UserRepository {
     users.push(newUser);
     localStorage.setItem("users", JSON.stringify(users));
     localStorage.setItem("currentUser", JSON.stringify(newUser));
-
     return new User(newUser);
   }
 
   update(userId, data) {
     const users = JSON.parse(localStorage.getItem("users")) || [];
-
     const updatedUsers = users.map((u) =>
       u.id === userId ? { ...u, ...data } : u
     );
 
     localStorage.setItem("users", JSON.stringify(updatedUsers));
-
     const updatedUser = updatedUsers.find((u) => u.id === userId);
-
     localStorage.setItem("currentUser", JSON.stringify(updatedUser));
-
     return new User(updatedUser);
   }
 }

@@ -4,7 +4,6 @@ export default class CartRepositoryImpl extends CartRepository {
   addItem(item) {
     const cart = getCartFromStorage();
     const existingItem = cart.find(cartItem => cartItem.flower.id === item.flower.id);
-
     if (existingItem){
       existingItem.quantity += item.quantity;
     }
@@ -12,7 +11,7 @@ export default class CartRepositoryImpl extends CartRepository {
     else {
       cart.push(item);
     }
-    
+
     saveCartToStorage(cart);
   }
 

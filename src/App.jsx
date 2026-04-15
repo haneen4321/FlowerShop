@@ -9,21 +9,13 @@ import Register from "./presentation/pages/Register";
 import Cart from "./presentation/pages/Cart";
 import Profile from "./presentation/pages/profile/Profile";
 import "./presentation/styles/responsive.css";
-
-
-/* ===== Layout ===== */
 function Layout() {
   const location = useLocation();
-
   const isAuthPage =
     location.pathname === "/login" ||
     location.pathname === "/register";
-
   return (
-    <>
-      {/* Header يظهر فقط إذا لم تكن صفحة مصادقة */}
-      {!isAuthPage && <Header />}
-
+    <>{!isAuthPage && <Header />}
       <main className="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -35,14 +27,10 @@ function Layout() {
           <Route path="/profile" element={<Profile />} />
         </Routes>
       </main>
-
-      {/* Footer يظهر فقط إذا لم تكن صفحة مصادقة */}
       {!isAuthPage && <Footer />}
     </>
   );
 }
-
-/* ===== App ===== */
 export default function App() {
   return (
     <BrowserRouter>
